@@ -27,7 +27,7 @@ const Hero = ({ theme, toggleTheme, activeSection }) => {
                 </span>
             </h4>
             
-            <div className="mobile-socials" style={{display: 'none'}}>
+            <div className="mobile-socials" style={{display: 'none', pointerEvents: 'auto'}}>
                 <ul className="list-inline">
 
                     <li className="list-inline-item">

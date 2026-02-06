@@ -12,9 +12,9 @@ const Header = ({ activeSection, setActiveSection }) => {
     };
 
     return (
-        <nav className="navbar-expand-md navbar fixed-top justify-content-center" id="navbar">
+        <nav className="navbar-expand navbar fixed-top justify-content-center" id="navbar">
             <span 
-                className="navbar-menu ml-auto" 
+                className="navbar-menu ml-auto d-none" 
                 data-toggle="collapse" 
                 onClick={toggleMenu}
                 role="button"

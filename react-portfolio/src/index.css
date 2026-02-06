@@ -350,3 +350,12 @@ body.theme-dark .card-description {
         pointer-events: auto;
     }
 }
+
+/* --- Mobile Navbar Tweaks --- */
+@media (max-width: 768px) {
+    #navbar .nav-link {
+        font-size: 14px !important; /* Smaller text to fit */
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+}
