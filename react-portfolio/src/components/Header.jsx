@@ -21,7 +21,7 @@ const Header = ({ activeSection, setActiveSection }) => {
             >
                 <span className="btn-line"></span>
             </span>
-            <div className={`collapse navbar-collapse order-1 order-lg-0 ${menuOpen ? 'show' : ''}`} id="navbarSupportedContent">
+            <div className="d-flex justify-content-center w-100" id="navbarSupportedContent">
                 <ul className="navbar-nav mx-auto">
                     {['About', 'Resume', 'Portfolio', 'Contact'].map((item) => (
                         <li className="nav-item" key={item}>

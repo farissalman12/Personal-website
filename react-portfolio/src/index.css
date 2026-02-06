@@ -16,6 +16,24 @@ body.theme-light .about-card {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+#navbar .nav-link:hover, #navbar .nav-link.active {
+    background: rgba(0,0,0,0.05);
+}
+body.theme-dark #navbar .nav-link:hover, body.theme-dark #navbar .nav-link.active {
+    background: rgba(255,255,255,0.1);
+}
+
+#navbar .navbar-nav {
+    flex-direction: row !important;
+    align-items: center;
+}
+
+#navbar .nav-item {
+    margin: 0 2px;
+}
+
+/* Fixed/Floating Elements */
+
 .about-subtitle {
     font-size: 14px;
     text-transform: uppercase;
