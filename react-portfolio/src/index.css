@@ -359,3 +359,25 @@ body.theme-dark .card-description {
         padding-right: 8px !important;
     }
 }
+
+/* --- Mobile Navbar Centering --- */
+@media (max-width: 768px) {
+    #navbar {
+        justify-content: center !important;
+        padding-top: 15px; /* Add some breathing room from top */
+    }
+    
+    #navbar .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto !important; /* Prevent taking full width if not needed */
+    }
+
+    #navbar .navbar-nav {
+        flex-direction: row !important; /* Force row direction */
+        align-items: center;
+    }
+    
+    #navbar .nav-item {
+        margin: 0 5px; /* Slight spacing between items */
+    }
+}
