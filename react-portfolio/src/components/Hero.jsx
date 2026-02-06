@@ -29,28 +29,7 @@ const Hero = ({ theme, toggleTheme, activeSection }) => {
             
             <div className="mobile-socials" style={{display: 'none'}}>
                 <ul className="list-inline">
-                    <li className="list-inline-item">
-                        <button 
-                            onClick={toggleTheme}
-                            className="btn btn-link theme-toggle-btn" 
-                            style={{
-                                background: theme === 'light' ? '#333' : '#fff',
-                                border: 'none', 
-                                cursor: 'pointer', 
-                                color: theme === 'light' ? '#fff' : '#000',
-                                padding: 0,
-                                width: '40px',
-                                height: '40px',
-                                borderRadius: '50%',
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginBottom: '10px'
-                            }}
-                        >
-                            <i className={`icon ${theme === 'dark' ? 'ion-md-sunny' : 'ion-md-moon'}`} style={{ fontSize: '20px', transform: theme === 'light' ? 'rotate(-30deg)' : 'none' }}></i>
-                        </button>
-                    </li>
+
                     <li className="list-inline-item">
                          <a href="http://www.hackerrank.com/profile/farishunzai" target="_blank" rel="noopener noreferrer" style={{color: theme === 'light' ? '#000' : '#fff', fontSize: '24px', margin: '0 10px'}}>
                             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{width: '24px', height: '24px', fill: theme === 'light' ? '#000' : '#fff', verticalAlign: 'middle'}}>
@@ -71,7 +50,32 @@ const Hero = ({ theme, toggleTheme, activeSection }) => {
                     <li className="list-inline-item"><a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer" style={{color: theme === 'light' ? '#000' : '#fff', fontSize: '24px', margin: '0 10px'}}><i className="icon ion-logo-github"></i></a></li>
                 </ul>
             </div>
-          </div>
+            
+            {/* Mobile Bottom Center Theme Toggle */}
+            <div className="mobile-theme-toggle-container">
+                <button 
+                    onClick={toggleTheme}
+                    className="btn btn-link theme-toggle-btn mobile-float-toggle" 
+                    style={{
+                        background: theme === 'light' ? '#333' : '#fff',
+                        border: 'none', 
+                        cursor: 'pointer', 
+                        color: theme === 'light' ? '#fff' : '#000',
+                        padding: 0,
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+                        zIndex: 100
+                    }}
+                >
+                    <i className={`icon ${theme === 'dark' ? 'ion-md-sunny' : 'ion-md-moon'}`} style={{ fontSize: '24px', transform: theme === 'light' ? 'rotate(-30deg)' : 'none' }}></i>
+                </button>
+            </div>
+        </div>
         </div>
       </div>
       <div className="fixed-wrapper" style={{zIndex: 10}}>

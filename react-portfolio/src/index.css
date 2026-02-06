@@ -328,3 +328,25 @@ body.theme-dark .card-description {
         right: 15px;
     }
 }
+
+/* --- Mobile Theme Toggle Positioning --- */
+.mobile-theme-toggle-container {
+    display: none; /* Hidden by default (desktop) */
+}
+
+@media (max-width: 768px) {
+    .mobile-theme-toggle-container {
+        display: flex;
+        justify-content: center;
+        position: fixed; /* Fixed to viewport */
+        bottom: 30px; /* Distance from bottom */
+        left: 0;
+        right: 0;
+        z-index: 1000; /* Ensure it's above everything */
+        pointer-events: auto; /* Enable clicks */
+    }
+    
+    .mobile-float-toggle {
+        pointer-events: auto;
+    }
+}

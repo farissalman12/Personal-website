@@ -59,7 +59,8 @@ const PhysicsBackground = ({ theme, activeSection }) => {
         renderRef.current = render;
 
         // Create particles
-        const particleCount = 200; // Optimized density for performance
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 60 : 200; // Reduced density for mobile
         const bodies = [];
 
         for (let i = 0; i < particleCount; i++) {
@@ -78,7 +79,7 @@ const PhysicsBackground = ({ theme, activeSection }) => {
             
             // Custom properties for orbit
             body.plugin = { 
-                baseOrbitRadius: Math.random() * 80 + 80, // Larger base orbit (80-160px)
+                baseOrbitRadius: isMobile ? Math.random() * 40 + 40 : Math.random() * 80 + 80, // Smaller orbit on mobile
                 angleSpeed: (Math.random() * 0.01) + 0.01, // Uniform direction (clock-wise), varying speed
                 visualRadius: radius // Store original radius for custom rendering
             };
