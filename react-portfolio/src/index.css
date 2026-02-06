@@ -269,3 +269,62 @@ body.theme-dark .card-title {
 body.theme-dark .card-description {
     color: #ccc;
 }
+
+/* --- Mobile Optimization --- */
+
+@media (max-width: 768px) {
+    /* Hero Section */
+    .home-name {
+        font-size: 3rem !important; /* Smaller title */
+        line-height: 1.2;
+    }
+    
+    .home-headline {
+        font-size: 1.5rem !important; /* Smaller headline */
+    }
+
+    /* Adjust Fixed Socials/Toggle for Mobile */
+    .fixed-wrapper {
+        display: none !important; /* Hide side fixed bars */
+    }
+
+    /* Show socials/toggle in main content on mobile */
+    .home-content {
+        padding-top: 60px; /* Space for navbar */
+    }
+    
+    .mobile-socials {
+        display: block !important;
+        margin-top: 30px;
+    }
+
+    /* About Section */
+    .about-card {
+        padding: 20px !important; /* Less padding */
+        margin-bottom: 20px;
+    }
+    
+    .about-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .info-grid .info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-grid .info-icon {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    /* Modals */
+    .lightbox-wrapper {
+        padding-top: 60px; /* Ensure content isn't under navbar/notched header */
+    }
+    
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+    }
+}
