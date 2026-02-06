@@ -16,21 +16,7 @@ body.theme-light .about-card {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-#navbar .nav-link:hover, #navbar .nav-link.active {
-    background: rgba(0,0,0,0.05);
-}
-body.theme-dark #navbar .nav-link:hover, body.theme-dark #navbar .nav-link.active {
-    background: rgba(255,255,255,0.1);
-}
 
-#navbar .navbar-nav {
-    flex-direction: row !important;
-    align-items: center;
-}
-
-#navbar .nav-item {
-    margin: 0 2px;
-}
 
 /* Fixed/Floating Elements */
 
@@ -290,40 +276,88 @@ body.theme-dark .card-description {
 
 /* --- Mobile Optimization --- */
 
+/* --- Consolidated Mobile Optimization --- */
 @media (max-width: 768px) {
     /* Hero Section */
     .home-name {
-        font-size: 3rem !important; /* Smaller title */
+        font-size: 2.5rem !important;
         line-height: 1.2;
     }
     
     .home-headline {
-        font-size: 1.5rem !important; /* Smaller headline */
+        font-size: 1.2rem !important;
     }
 
-    /* Adjust Fixed Socials/Toggle for Mobile */
+    /* Navbar Mobile Tweaks */
+    #navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 10px 0 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        justify-content: center !important;
+    }
+    body.theme-dark #navbar {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    
+    #navbar .nav-link {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+        border-radius: 20px;
+    }
+    
+    #navbar .nav-link:hover, #navbar .nav-link.active {
+        background: rgba(0,0,0,0.05);
+    }
+    body.theme-dark #navbar .nav-link:hover, body.theme-dark #navbar .nav-link.active {
+        background: rgba(255,255,255,0.1);
+    }
+
+    #navbar .navbar-nav {
+        flex-direction: row !important; /* Critical: Prevent vertical stacking */
+        align-items: center;
+        width: auto; /* Allow centering */
+    }
+    
+    #navbar .nav-item {
+        margin: 0 2px;
+    }
+
+    /* Fixed/Floating Elements */
     .fixed-wrapper {
-        display: none !important; /* Hide side fixed bars */
+        display: none !important;
     }
-
-    /* Show socials/toggle in main content on mobile */
+    
     .home-content {
-        padding-top: 60px; /* Space for navbar */
+        padding-top: 80px;
     }
     
     .mobile-socials {
         display: block !important;
         margin-top: 30px;
+        pointer-events: auto;
     }
 
-    /* About Section */
-    .about-card {
-        padding: 20px !important; /* Less padding */
-        margin-bottom: 20px;
+    /* Theme Toggle */
+    .mobile-theme-toggle-container {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        pointer-events: auto;
     }
     
-    .about-title {
-        font-size: 1.5rem !important;
+    .mobile-float-toggle {
+        pointer-events: auto;
+    }
+    
+    /* Layout Adjustments */
+    .about-card {
+        padding: 20px !important;
+        margin-bottom: 20px;
     }
     
     .info-grid .info-item {
@@ -336,9 +370,8 @@ body.theme-dark .card-description {
         margin-bottom: 5px;
     }
     
-    /* Modals */
     .lightbox-wrapper {
-        padding-top: 60px; /* Ensure content isn't under navbar/notched header */
+        padding-top: 60px;
     }
     
     .lightbox-close {
@@ -347,55 +380,12 @@ body.theme-dark .card-description {
     }
 }
 
-/* --- Mobile Theme Toggle Positioning --- */
+/* Ensure Toggle is hidden on Desktop */
 .mobile-theme-toggle-container {
-    display: none; /* Hidden by default (desktop) */
+    display: none;
 }
-
 @media (max-width: 768px) {
     .mobile-theme-toggle-container {
-        display: flex;
-        justify-content: center;
-        position: fixed; /* Fixed to viewport */
-        bottom: 30px; /* Distance from bottom */
-        left: 0;
-        right: 0;
-        z-index: 1000; /* Ensure it's above everything */
-        pointer-events: auto; /* Enable clicks */
-    }
-    
-    .mobile-float-toggle {
-        pointer-events: auto;
-    }
-}
-
-/* --- Mobile Navbar Tweaks --- */
-@media (max-width: 768px) {
-    #navbar .nav-link {
-        font-size: 14px !important; /* Smaller text to fit */
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-    }
-}
-
-/* --- Mobile Navbar Centering --- */
-@media (max-width: 768px) {
-    #navbar {
-        justify-content: center !important;
-        padding-top: 15px; /* Add some breathing room from top */
-    }
-    
-    #navbar .navbar-collapse {
-        display: flex !important;
-        flex-basis: auto !important; /* Prevent taking full width if not needed */
-    }
-
-    #navbar .navbar-nav {
-        flex-direction: row !important; /* Force row direction */
-        align-items: center;
-    }
-    
-    #navbar .nav-item {
-        margin: 0 5px; /* Slight spacing between items */
+        display: flex; /* Re-enable for mobile in case the media query above didn't catch it locally? No, it's safer to keep the global hide outside. */
     }
 }
