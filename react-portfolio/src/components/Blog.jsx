@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { BackButton } from './ui/back-button';
 
 const Blog = ({ isOpen, onClose }) => {
     const posts = [
@@ -26,12 +27,8 @@ const Blog = ({ isOpen, onClose }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999, overflowY: 'auto' }}
         >
+            <BackButton onClick={onClose} />
             <div className="container">
-                <div className="lightbox-close">
-                    <div className="close-btn" onClick={onClose}>
-                        <span className="btn-line"></span>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col-12">
                         <div className="lightbox-content">

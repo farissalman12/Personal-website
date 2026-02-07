@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Lightbox from "yet-another-react-lightbox";
+import { GlowingCard } from './ui/glowing-card';
+import { BackButton } from './ui/back-button';
 
 const Portfolio = ({ isOpen, onClose }) => {
     const [filter, setFilter] = useState('development');
@@ -40,12 +42,8 @@ const Portfolio = ({ isOpen, onClose }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999, overflowY: 'auto' }}
         >
+            <BackButton onClick={onClose} />
             <div className="container">
-                <div className="lightbox-close">
-                    <div className="close-btn" onClick={onClose}>
-                        <span className="btn-line"></span>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col-12">
                         <div className="lightbox-content">
@@ -78,24 +76,47 @@ const Portfolio = ({ isOpen, onClose }) => {
                                     </div>
                                 </div>
 
-                                <div className="portfolio-grid row">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {filteredItems.map((item, index) => (
-                                        <div className={`single-item col-6 col-lg-4 ${item.category}`} key={item.id}>
+                                        <div className={`single-item ${item.category} h-full`} key={item.id}>
                                             <a 
-                                                className="portfolio-item" 
+                                                className="portfolio-item block h-full group" 
                                                 href={item.img} 
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     openLightbox(index);
                                                 }}
                                             >
-                                                <div className="portfolio-card">
-                                                    <img className="img-fluid" alt="Item" src={item.img} />
-                                                    <div className="card-content">
-                                                        <h6 className="card-title">{item.title}</h6>
-                                                        <span className="card-description">{item.description}</span>
+                                                <GlowingCard variant="white" className="h-full transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] bg-background">
+                                                    <div className="h-full flex flex-col relative overflow-hidden rounded-xl">
+                                                        {/* Image Container with Overlay */}
+                                                        <div className="w-full h-48 overflow-hidden relative">
+                                                            <img 
+                                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0" 
+                                                                alt={item.title} 
+                                                                src={item.img} 
+                                                            />
+                                                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                                                <i className="icon ion-md-expand text-white text-3xl transform scale-50 group-hover:scale-100 transition-transform duration-300"></i>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        {/* Content */}
+                                                        <div className="card-content flex-grow p-5 flex flex-col justify-between">
+                                                            <div>
+                                                                <div className="flex justify-between items-center mb-2">
+                                                                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{item.category}</span>
+                                                                </div>
+                                                                <h6 className="card-title text-lg font-bold mb-2 group-hover:text-white transition-colors">{item.title}</h6>
+                                                            </div>
+                                                            <p className="card-description opacity-70 text-sm line-clamp-3">{item.description}</p>
+                                                            
+                                                            <div className="mt-4 flex items-center text-xs font-semibold uppercase tracking-wide opacity-50 group-hover:opacity-100 transition-opacity text-white">
+                                                                View Project <i className="icon ion-md-arrow-forward ml-1"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </GlowingCard>
                                             </a>
                                         </div>
                                     ))}

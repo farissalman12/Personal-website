@@ -1,6 +1,8 @@
 import React from 'react';
+import { GlowingCard } from './ui/glowing-card';
 import { motion } from 'framer-motion';
-
+import { BackButton } from './ui/back-button';
+import { SiLeetcode, SiHackerrank } from "react-icons/si";
 
 const About = ({ isOpen, onClose }) => {
     const variants = {
@@ -18,12 +20,8 @@ const About = ({ isOpen, onClose }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999, overflowY: 'auto' }}
         >
+            <BackButton onClick={onClose} />
             <div className="container">
-                <div className="lightbox-close">
-                    <div className="close-btn" onClick={onClose}>
-                        <span className="btn-line"></span>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col-12">
                         <div className="lightbox-content">
@@ -37,69 +35,86 @@ const About = ({ isOpen, onClose }) => {
                                 </div>
                             </div>
                             
-                            {/* Info Section */}
+                            {/* Info Section - Bento Grid */}
                             <div className="info-section single-section">
-                                <div className="row align-items-center">
-                                    <div className="col-12 info-content text-center">
-                                        <div className="about-card">
-                                            <span className="about-subtitle">Who am i?</span>
-                                            <h3 className="about-title">I'm Faris Salman, a Creative Tech Professional</h3>
-                                            <div className="about-description">
-                                                <p>I sit at the intersection of creative design and robust engineering.</p>
-                                                <p>Fueled by a tech obsession that began in childhood, I don't just write code; I craft experiences. With a strong foundation in <strong>Mobile & Web Development</strong> and <strong>Cybersecurity</strong>, I architect intelligent systems that are as secure as they are powerful. But my work doesn't stop at the terminal, I bring ideas to life through <strong>Graphics Design</strong>, <strong>Video Editing</strong>, and <strong>Audio Engineering</strong>.</p>
-                                                <p>Whether I’m troubleshooting a custom <strong>Arch Linux</strong> environment, booting into <strong>Kali</strong> to test system defenses, or designing a brand identity, my goal is the same: to build digital products that function flawlessly and look exceptional.</p>
-                                            </div>
-                                            
-                                            <div className="info-grid">
-                                                <div className="row justify-content-center">
-                                                    <div className="col-12 col-md-6 col-lg-5">
-                                                        <div className="info-item">
-                                                            <i className="icon ion-md-person info-icon"></i>
-                                                            <span className="info-label">Name:</span>
-                                                            <span className="info-value">Faris Salman</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-12 col-md-6 col-lg-5">
-                                                        <div className="info-item">
-                                                            <i className="icon ion-md-mail info-icon"></i>
-                                                            <span className="info-label">Email:</span>
-                                                            <span className="info-value"><a href="mailto:farishunzai@gmail.com">farishunzai@gmail.com</a></span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-12 col-md-6 col-lg-5">
-                                                        <div className="info-item">
-                                                            <i className="icon ion-md-map info-icon"></i>
-                                                            <span className="info-label">From:</span>
-                                                            <span className="info-value">Lahore, Pakistan</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-12 col-md-6 col-lg-5">
-                                                        <div className="info-item">
-                                                            <i className="icon ion-md-calendar info-icon"></i>
-                                                            <span className="info-label">Availability:</span>
-                                                            <span className="info-value">Open for Opportunities</span>
-                                                        </div>
-                                                    </div>
+                                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                                    {/* Bio Card - Spans 8 cols on desktop */}
+                                    <div className="md:col-span-8">
+                                        <GlowingCard className="h-full">
+                                            <div className="h-full flex flex-col justify-center">
+                                                <span className="text-sm uppercase tracking-wider text-muted-foreground font-semibold mb-2">Who am i?</span>
+                                                <h3 className="text-2xl font-bold mb-4">I'm Faris Salman, a Creative Tech Professional</h3>
+                                                <div className="opacity-90 space-y-4">
+                                                    <p>I sit at the intersection of creative design and robust engineering.</p>
+                                                    <p>Fueled by a tech obsession that began in childhood, I don't just write code; I craft experiences. With a strong foundation in <strong>Mobile & Web Development</strong> and <strong>Cybersecurity</strong>, I architect intelligent systems that are as secure as they are powerful. But my work doesn't stop at the terminal, I bring ideas to life through <strong>Graphics Design</strong>, <strong>Video Editing</strong>, and <strong>Audio Engineering</strong>.</p>
+                                                    <p>Whether I’m troubleshooting a custom <strong>Arch Linux</strong> environment, booting into <strong>Kali</strong> to test system defenses, or designing a brand identity, my goal is the same: to build digital products that function flawlessly and look exceptional.</p>
+                                                </div>
+                                                <div className="mt-6 flex flex-wrap gap-4">
+                                                    <a className="btn content-download button-main button-scheme px-6 py-2 rounded-full inline-block" href="#" role="button">Download CV</a>
                                                 </div>
                                             </div>
+                                        </GlowingCard>
+                                    </div>
 
-                                            <div className="d-block d-sm-flex align-items-center mt-4 justify-content-center">
-                                                <a className="btn content-download button-main button-scheme" href="#" role="button">Download CV</a>
-                                                <ul className="list-unstyled list-inline content-follow">
-                                                    <li className="list-inline-item"><a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer"><i className="icon ion-logo-linkedin"></i></a></li>
-                                                    <li className="list-inline-item"><a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer"><i className="icon ion-logo-github"></i></a></li>
-                                                    <li className="list-inline-item"><a href="http://www.hackerrank.com/profile/farishunzai" target="_blank" rel="noopener noreferrer"><i className="icon ion-md-code"></i></a></li>
-                                                    <li className="list-inline-item"><a href="https://leetcode.com/u/farishunzai/" target="_blank" rel="noopener noreferrer"><i className="icon ion-md-code-working"></i></a></li>
-                                                </ul>
+                                    {/* Personal Info - Spans 4 cols on desktop */}
+                                    <div className="md:col-span-4 flex flex-col gap-6">
+                                         <GlowingCard className="flex-grow">
+                                            <div className="flex flex-col justify-center h-full space-y-6">
+                                                <div className="flex items-center space-x-4">
+                                                     <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
+                                                        <i className="icon ion-md-person text-foreground text-xl"></i>
+                                                     </div>
+                                                     <div>
+                                                        <span className="block text-xs uppercase opacity-70">Name</span>
+                                                        <span className="font-semibold">Faris Salman</span>
+                                                     </div>
+                                                </div>
+                                                <div className="flex items-center space-x-4">
+                                                     <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
+                                                        <i className="icon ion-md-mail text-foreground text-xl"></i>
+                                                     </div>
+                                                     <div className="overflow-hidden">
+                                                        <span className="block text-xs uppercase opacity-70">Email</span>
+                                                        <span className="font-semibold truncate block"><a href="mailto:farishunzai@gmail.com" className="hover:text-muted-foreground transition-colors">farishunzai@gmail.com</a></span>
+                                                     </div>
+                                                </div>
+                                                <div className="flex items-center space-x-4">
+                                                     <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
+                                                        <i className="icon ion-md-map text-foreground text-xl"></i>
+                                                     </div>
+                                                     <div>
+                                                        <span className="block text-xs uppercase opacity-70">From</span>
+                                                        <span className="font-semibold">Lahore, Pakistan</span>
+                                                     </div>
+                                                </div>
+                                                <div className="flex items-center space-x-4">
+                                                     <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
+                                                        <i className="icon ion-md-calendar text-foreground text-xl"></i>
+                                                     </div>
+                                                     <div>
+                                                        <span className="block text-xs uppercase opacity-70">Availability</span>
+                                                        <span className="font-semibold text-green-500">Open for Work</span>
+                                                     </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                         </GlowingCard>
+
+                                        {/* Socials Card */}
+                                        <GlowingCard>
+                                            <div className="flex justify-around items-center h-full py-2">
+                                                 <a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors"><i className="icon ion-logo-linkedin"></i></a>
+                                                 <a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors"><i className="icon ion-logo-github"></i></a>
+                                                 <a href="http://www.hackerrank.com/profile/farishunzai" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors flex items-center justify-center"><SiHackerrank /></a>
+                                                 <a href="https://leetcode.com/u/farishunzai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors flex items-center justify-center"><SiLeetcode /></a>
+                                            </div>
+                                        </GlowingCard>
                                     </div>
                                 </div>
                             </div>
 
                             
                             {/* Services Section */}
-                            <div className="services-section single-section">
+                            <div className="services-section single-section mt-12">
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="section-heading">
@@ -108,8 +123,7 @@ const About = ({ isOpen, onClose }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    {/* Services Grid */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {[
                                         { title: 'Mobile App Dev', icon: 'ion-logo-android', desc: 'Building cross-platform mobile applications using React Native.' },
                                         { title: 'CyberSecurity', icon: 'ion-md-lock', desc: 'Vulnerability Assessment, Risk Management, and Network Security.' },
@@ -118,19 +132,16 @@ const About = ({ isOpen, onClose }) => {
                                         { title: 'Graphic Design', icon: 'ion-md-brush', desc: 'UI/UX Design, Branding, and Visual Identity.' },
                                         { title: 'Media Editing', icon: 'ion-md-videocam', desc: 'Audio and Video editing using Premiere Pro and FL Studio.' },
                                     ].map((service, index) => (
-                                        <div className="col-12 col-md-6 col-lg-4" key={index}>
-                                            <div className="single-service">
-                                                <i className={`icon service-icon ${service.icon}`}></i>
-                                                <h6 className="service-title">{service.title}</h6>
-                                                <p className="service-description">{service.desc}</p>
+                                        <GlowingCard key={index} className="h-full">
+                                            <div className="text-center p-4">
+                                                <i className={`icon service-icon ${service.icon} text-4xl text-foreground mb-4 block`}></i>
+                                                <h6 className="service-title font-bold text-lg mb-2">{service.title}</h6>
+                                                <p className="service-description opacity-80 text-sm">{service.desc}</p>
                                             </div>
-                                        </div>
+                                        </GlowingCard>
                                     ))}
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>

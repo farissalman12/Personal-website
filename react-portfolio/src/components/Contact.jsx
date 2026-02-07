@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { BackButton } from './ui/back-button';
 
 const Contact = ({ isOpen, onClose }) => {
     const variants = {
@@ -17,12 +18,8 @@ const Contact = ({ isOpen, onClose }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999, overflowY: 'auto' }}
         >
+            <BackButton onClick={onClose} />
             <div className="container">
-                <div className="lightbox-close">
-                    <div className="close-btn" onClick={onClose}>
-                        <span className="btn-line"></span>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col-12">
                         <div className="lightbox-content">
@@ -55,7 +52,7 @@ const Contact = ({ isOpen, onClose }) => {
                                                     <textarea className="form-control" id="contact-message" name="message" placeholder="Message" rows="5" required></textarea>
                                                 </div>
                                                 <div className="col-12 form-submit">
-                                                    <button className="btn button-main button-scheme" id="contact-submit" type="submit">Send Message</button>
+                                                    <button className="btn w-full py-3 rounded-lg border border-foreground/10 bg-background text-foreground hover:bg-foreground hover:text-background transition-colors font-medium tracking-wide uppercase text-sm" id="contact-submit" type="submit">Send Message</button>
                                                     <p className="contact-feedback"></p>
                                                 </div>
                                             </div>
@@ -67,23 +64,23 @@ const Contact = ({ isOpen, onClose }) => {
                                             <p className="info-description">Always available for freelance work if the right project comes along, Feel free to contact me!</p>
                                             <ul className="list-unstyled list-info">
                                                 <li>
-                                                    <div className="media align-items-center"><span className="info-icon"><i className="icon ion-logo-ionic"></i></span>
+                                                    <div className="media align-items-center"><span className="info-icon"><i className="icon ion-logo-ionic text-foreground"></i></span>
                                                         <div className="media-body info-details">
-                                                            <h6 className="info-type">Name</h6><span className="info-value">Faris Salman</span>
+                                                            <h6 className="info-type text-muted-foreground">Name</h6><span className="info-value text-foreground">Faris Salman</span>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div className="media align-items-center"><span className="info-icon"><i className="icon ion-md-map"></i></span>
+                                                    <div className="media align-items-center"><span className="info-icon"><i className="icon ion-md-map text-foreground"></i></span>
                                                         <div className="media-body info-details">
-                                                            <h6 className="info-type">Location</h6><span className="info-value">Lahore, Punjab, Pakistan.</span>
+                                                            <h6 className="info-type text-muted-foreground">Location</h6><span className="info-value text-foreground">Lahore, Punjab, Pakistan.</span>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div className="media align-items-center"><span className="info-icon"><i className="icon ion-md-send"></i></span>
+                                                    <div className="media align-items-center"><span className="info-icon"><i className="icon ion-md-send text-foreground"></i></span>
                                                         <div className="media-body info-details">
-                                                            <h6 className="info-type">Email Me</h6><span class="info-value"><a href="mailto:farishunzai@gmail.com">farishunzai@gmail.com</a></span>
+                                                            <h6 className="info-type text-muted-foreground">Email Me</h6><span className="info-value"><a href="mailto:farishunzai@gmail.com" className="text-foreground hover:text-muted-foreground transition-colors">farishunzai@gmail.com</a></span>
                                                         </div>
                                                     </div>
                                                 </li>
