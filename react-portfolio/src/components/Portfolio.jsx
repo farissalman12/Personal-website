@@ -10,12 +10,12 @@ const Portfolio = ({ isOpen, onClose }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const items = [
-        { id: 1, category: 'development', title: 'React Native App', description: 'Cross-platform mobile application for secure messaging.', img: '/img/item-1.jpg' },
-        { id: 2, category: 'video-editing', title: 'Cinematic Travel Vlog', description: 'High-energy travel montage with seamless transitions.', img: '/img/item-2.jpg' },
-        { id: 3, category: 'development', title: 'E-commerce Website', description: 'Full-stack online store with payment integration.', img: '/img/item-3.jpg' },
-        { id: 4, category: 'video-editing', title: 'Tech Review Edit', description: 'Snappy editing for gadget review video.', img: '/img/item-4.jpg' },
-        { id: 5, category: 'development', title: 'Portfolio Website', description: 'Personal brand showcase with interactive animations.', img: '/img/item-5.jpg' },
-        { id: 6, category: 'video-editing', title: 'Corporate Promo', description: 'Professional business advertisement videos.', img: '/img/item-6.jpg' },
+        { id: 1, category: 'development', title: 'Shop360 FYP', description: 'Full-stack e-commerce platform built with React and Node.js.', img: '/img/Shop360.jpeg', link: 'https://github.com/farissalman12/Shop360', techStack: ['React Native', 'Firebase', 'ViroReact AR', 'TypeScript'] },
+        { id: 2, category: 'development', title: 'Qataar Board Game', description: 'Traditional Hunza board game implemented for the web.', img: '/img/Qataar.png', link: 'https://farissalman12.github.io/QataarHunzaBoardGame/', techStack: ['React', 'Tailwind', 'Framer Motion'] },
+        { id: 3, category: 'development', title: 'PhishGuard', description: 'A phishing detection tool to enhance cybersecurity.', img: '/img/PhishGuard.png', link: 'https://github.com/farissalman12/PhisingDetectionTool', techStack: ['React', 'NestJS', 'PostgreSQL', 'Prisma'] },
+        { id: 4, category: 'development', title: 'Burushaski Number Converter', description: 'Utility to translate numbers into the Burushaski language.', img: '/img/Buruashki Number Translator.png', link: 'https://github.com/farissalman12/burushashki-number-converter', techStack: ['JavaScript', 'HTML/CSS'] },
+        { id: 5, category: 'video-graphics', title: 'Cinematic Travel Vlog', description: 'High-energy travel montage with seamless transitions.', img: '/img/item-2.jpg', techStack: ['Premiere Pro'] },
+        { id: 6, category: 'video-graphics', title: 'Corporate Promo', description: 'Professional business advertisement videos.', img: '/img/item-6.jpg', techStack: ['Premiere Pro', 'After Effects'] },
     ];
 
     const filteredItems = filter === '*' ? items : items.filter(item => item.category === filter);
@@ -62,14 +62,14 @@ const Portfolio = ({ isOpen, onClose }) => {
                                 <div className="row">
                                     <div className="col-12">
                                         <ul className="list-inline filter-control" role="group" aria-label="Filter Control">
-                                            {['development', 'video-editing'].map(cat => (
+                                            {['development', 'video-graphics'].map(cat => (
                                                 <li 
                                                     key={cat}
                                                     className={`list-inline-item ${filter === cat ? 'tab-active' : ''}`} 
                                                     onClick={() => setFilter(cat)}
                                                     style={{textTransform: 'capitalize'}}
                                                 >
-                                                    {cat.replace('-', ' ')}
+                                                    {cat === 'video-graphics' ? 'Video/Graphics' : cat.replace('-', ' ')}
                                                 </li>
                                             ))}
                                         </ul>
@@ -81,38 +81,58 @@ const Portfolio = ({ isOpen, onClose }) => {
                                         <div className={`single-item ${item.category} h-full`} key={item.id}>
                                             <a 
                                                 className="portfolio-item block h-full group" 
-                                                href={item.img} 
+                                                href={item.link || item.img} 
+                                                target={item.link ? "_blank" : "_self"}
+                                                rel={item.link ? "noopener noreferrer" : ""}
                                                 onClick={(e) => {
-                                                    e.preventDefault();
-                                                    openLightbox(index);
+                                                    if (!item.link) {
+                                                        e.preventDefault();
+                                                        openLightbox(index);
+                                                    }
                                                 }}
                                             >
-                                                <GlowingCard variant="white" className="h-full transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] bg-background">
-                                                    <div className="h-full flex flex-col relative overflow-hidden rounded-xl">
-                                                        {/* Image Container with Overlay */}
-                                                        <div className="w-full h-48 overflow-hidden relative">
-                                                            <img 
-                                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0" 
-                                                                alt={item.title} 
-                                                                src={item.img} 
-                                                            />
-                                                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                                                <i className="icon ion-md-expand text-white text-3xl transform scale-50 group-hover:scale-100 transition-transform duration-300"></i>
+                                                <GlowingCard variant="white" className="h-full transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl bg-background flex flex-col overflow-hidden rounded-xl border border-border/40">
+                                                    {/* Image Header */}
+                                                    <div className="w-full h-52 overflow-hidden relative bg-muted/20 border-b border-border/40">
+                                                        <img 
+                                                            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] grayscale-[30%] group-hover:grayscale-0" 
+                                                            alt={item.title} 
+                                                            src={item.img} 
+                                                        />
+                                                    </div>
+                                                    
+                                                    {/* Clean Content Body */}
+                                                    <div className="flex-grow p-6 flex flex-col justify-between bg-card">
+                                                        <div>
+                                                            <div className="mb-3">
+                                                                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                                                                    {item.category === 'video-graphics' ? 'Video/Graphics' : item.category.replace('-', ' ')}
+                                                                </span>
                                                             </div>
+                                                            <h6 className="text-xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">
+                                                                {item.title}
+                                                            </h6>
+                                                            <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3">
+                                                                {item.description}
+                                                            </p>
                                                         </div>
                                                         
-                                                        {/* Content */}
-                                                        <div className="card-content flex-grow p-5 flex flex-col justify-between">
-                                                            <div>
-                                                                <div className="flex justify-between items-center mb-2">
-                                                                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{item.category}</span>
+                                                        <div className="mt-auto">
+                                                            {/* Minimalist Tech Stack */}
+                                                            {item.techStack && (
+                                                                <div className="flex flex-wrap gap-2 mb-6">
+                                                                    {item.techStack.map((tech, i) => (
+                                                                        <span key={i} className="text-[10px] font-medium tracking-wide px-2.5 py-1 bg-secondary/60 text-secondary-foreground rounded-md border border-border/50">
+                                                                            {tech}
+                                                                        </span>
+                                                                    ))}
                                                                 </div>
-                                                                <h6 className="card-title text-lg font-bold mb-2 group-hover:text-white transition-colors">{item.title}</h6>
-                                                            </div>
-                                                            <p className="card-description opacity-70 text-sm line-clamp-3">{item.description}</p>
+                                                            )}
                                                             
-                                                            <div className="mt-4 flex items-center text-xs font-semibold uppercase tracking-wide opacity-50 group-hover:opacity-100 transition-opacity text-white">
-                                                                View Project <i className="icon ion-md-arrow-forward ml-1"></i>
+                                                            {/* Minimalist Action Link */}
+                                                            <div className="flex items-center text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors">
+                                                                {item.link ? 'View Git Repo' : 'View Project'} 
+                                                                <i className="icon ion-md-arrow-forward ml-2 opacity-50 text-base transform group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300"></i>
                                                             </div>
                                                         </div>
                                                     </div>

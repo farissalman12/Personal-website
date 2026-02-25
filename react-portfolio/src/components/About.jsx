@@ -2,7 +2,7 @@ import React from 'react';
 import { GlowingCard } from './ui/glowing-card';
 import { motion } from 'framer-motion';
 import { BackButton } from './ui/back-button';
-import { SiLeetcode, SiHackerrank } from "react-icons/si";
+import { SiLeetcode, SiHackerrank, SiLinkedin, SiGithub } from "react-icons/si";
 
 const About = ({ isOpen, onClose }) => {
     const variants = {
@@ -102,10 +102,10 @@ const About = ({ isOpen, onClose }) => {
                                         {/* Socials Card */}
                                         <GlowingCard>
                                             <div className="flex justify-around items-center h-full py-2">
-                                                 <a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors"><i className="icon ion-logo-linkedin"></i></a>
-                                                 <a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors"><i className="icon ion-logo-github"></i></a>
-                                                 <a href="http://www.hackerrank.com/profile/farishunzai" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors flex items-center justify-center"><SiHackerrank /></a>
-                                                 <a href="https://leetcode.com/u/farishunzai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-muted-foreground transition-colors flex items-center justify-center"><SiLeetcode /></a>
+                                                 <a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors flex items-center justify-center"><SiLinkedin className="w-6 h-6" /></a>
+                                                 <a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors flex items-center justify-center"><SiGithub className="w-6 h-6" /></a>
+                                                 <a href="http://www.hackerrank.com/profile/farishunzai" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors flex items-center justify-center"><SiHackerrank className="w-6 h-6" /></a>
+                                                 <a href="https://leetcode.com/u/farishunzai/" target="_blank" rel="noopener noreferrer" className="hover:text-muted-foreground transition-colors flex items-center justify-center"><SiLeetcode className="w-6 h-6" /></a>
                                             </div>
                                         </GlowingCard>
                                     </div>

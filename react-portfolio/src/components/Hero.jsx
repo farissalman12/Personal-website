@@ -1,6 +1,7 @@
 import React from 'react';
 import ClipAnimation from './ClipAnimation';
 import PhysicsBackground from './PhysicsBackground';
+import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 const Hero = ({ theme, toggleTheme, activeSection }) => {
   return (
@@ -46,8 +47,8 @@ const Hero = ({ theme, toggleTheme, activeSection }) => {
                             </svg>
                         </a>
                     </li>
-                    <li className="list-inline-item"><a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer" style={{color: theme === 'light' ? '#000' : '#fff', fontSize: '24px', margin: '0 10px'}}><i className="icon ion-logo-linkedin"></i></a></li>
-                    <li className="list-inline-item"><a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer" style={{color: theme === 'light' ? '#000' : '#fff', fontSize: '24px', margin: '0 10px'}}><i className="icon ion-logo-github"></i></a></li>
+                    <li className="list-inline-item"><a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer" style={{color: theme === 'light' ? '#000' : '#fff', fontSize: '24px', margin: '0 10px'}}><SiLinkedin style={{width: '24px', height: '24px', fill: theme === 'light' ? '#000' : '#fff', verticalAlign: 'middle'}} /></a></li>
+                    <li className="list-inline-item"><a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer" style={{color: theme === 'light' ? '#000' : '#fff', fontSize: '24px', margin: '0 10px'}}><SiGithub style={{width: '24px', height: '24px', fill: theme === 'light' ? '#000' : '#fff', verticalAlign: 'middle'}} /></a></li>
                 </ul>
             </div>
             
@@ -125,8 +126,8 @@ const Hero = ({ theme, toggleTheme, activeSection }) => {
                     </svg>
                 </a>
             </li>
-            <li><a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer"><i className="icon ion-logo-linkedin"></i></a></li>
-            <li><a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer"><i className="icon ion-logo-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/faris-salman-b493b21a4/" target="_blank" rel="noopener noreferrer"><SiLinkedin style={{width: '20px', height: '20px', fill: theme === 'light' ? '#000' : '#fff'}} /></a></li>
+            <li><a href="https://github.com/farissalman12" target="_blank" rel="noopener noreferrer"><SiGithub style={{width: '20px', height: '20px', fill: theme === 'light' ? '#000' : '#fff'}} /></a></li>
           </ul>
         </div>
       </div>
