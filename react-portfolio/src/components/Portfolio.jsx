@@ -14,8 +14,9 @@ const Portfolio = ({ isOpen, onClose }) => {
         { id: 2, category: 'development', title: 'Qataar Board Game', description: 'Traditional Hunza board game implemented for the web.', img: '/img/Qataar.png', link: 'https://farissalman12.github.io/QataarHunzaBoardGame/', techStack: ['React', 'Tailwind', 'Framer Motion'] },
         { id: 3, category: 'development', title: 'PhishGuard', description: 'A phishing detection tool to enhance cybersecurity.', img: '/img/PhishGuard.png', link: 'https://github.com/farissalman12/PhisingDetectionTool', techStack: ['React', 'NestJS', 'PostgreSQL', 'Prisma'] },
         { id: 4, category: 'development', title: 'Burushaski Number Converter', description: 'Utility to translate numbers into the Burushaski language.', img: '/img/Buruashki Number Translator.png', link: 'https://github.com/farissalman12/burushashki-number-converter', techStack: ['JavaScript', 'HTML/CSS'] },
-        { id: 5, category: 'video-graphics', title: 'Cinematic Travel Vlog', description: 'High-energy travel montage with seamless transitions.', img: '/img/item-2.jpg', techStack: ['Premiere Pro'] },
-        { id: 6, category: 'video-graphics', title: 'Corporate Promo', description: 'Professional business advertisement videos.', img: '/img/item-6.jpg', techStack: ['Premiere Pro', 'After Effects'] },
+        { id: 5, category: 'video-graphics', title: 'Shop360 | FYP Project Ad', description: 'A short promotional advertisement for the Shop360 Final Year Project, showcasing the AR shopping experience.', img: '/img/shop360_ad.jpg', link: 'https://www.youtube.com/watch?v=xnwhQ9ljToI', techStack: ['Adobe Photoshop', 'Adobe Premiere Pro', 'Adobe After Effects'] },
+        { id: 6, category: 'video-graphics', title: 'DiscoverGB Ad', description: 'A marketing semester project advertisement promoting the beauty of Gilgit-Baltistan.', img: '/img/discovergb_ad.jpg', link: 'https://www.youtube.com/watch?v=TU55JWfMlMk', techStack: ['Adobe Photoshop', 'Adobe Premiere Pro', 'Adobe After Effects'] },
+        { id: 7, category: 'video-graphics', title: 'Glacial Fizz Ad', description: 'A creative marketing semester project advertisement for the fictional Glacial Fizz beverage brand.', img: '/img/glacial_fizz_ad.jpg', link: 'https://www.youtube.com/watch?v=7ufWmYbnHVk', techStack: ['Adobe Photoshop', 'Adobe Premiere Pro', 'Adobe After Effects'] },
     ];
 
     const filteredItems = filter === '*' ? items : items.filter(item => item.category === filter);
@@ -131,7 +132,7 @@ const Portfolio = ({ isOpen, onClose }) => {
                                                             
                                                             {/* Minimalist Action Link */}
                                                             <div className="flex items-center text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors">
-                                                                {item.link ? 'View Git Repo' : 'View Project'} 
+                                                                {item.link ? (item.link.includes('youtube.com') ? 'Watch on YouTube' : 'View Git Repo') : 'View Project'} 
                                                                 <i className="icon ion-md-arrow-forward ml-2 opacity-50 text-base transform group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300"></i>
                                                             </div>
                                                         </div>
